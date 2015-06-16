@@ -5,8 +5,8 @@ import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
 import static org.quartz.CronScheduleBuilder.cronSchedule;
-import static org.quartz.JobBuilder.*;
-import static org.quartz.TriggerBuilder.*;
+import static org.quartz.JobBuilder.newJob;
+import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
  * Created by hans on 07/06/15.
@@ -18,10 +18,10 @@ public class CronApplication {
         Scheduler sched = sf.getScheduler();
 
         JobDetail job = newJob(BudgetCleanupJob.class)
-                .withIdentity("job1", "group1")
+                .withIdentity("budgetCleanupJob1", "monthlyJobs")
                 .build();
         CronTrigger trigger = newTrigger()
-                .withIdentity("trigger1", "group1")
+                .withIdentity("trigger1", "monthlyJobs")
                 .withSchedule(cronSchedule("0/20 * * * * ?"))
                 .build();
         sched.scheduleJob(job, trigger);
