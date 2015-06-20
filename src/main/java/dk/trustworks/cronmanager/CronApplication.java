@@ -22,7 +22,7 @@ public class CronApplication {
                 .build();
         CronTrigger trigger = newTrigger()
                 .withIdentity("trigger1", "monthlyJobs")
-                .withSchedule(cronSchedule("0/20 * * * * ?"))
+                .withSchedule(cronSchedule("0/60 * * * * ?"))
                 .build();
         sched.scheduleJob(job, trigger);
         sched.start();
