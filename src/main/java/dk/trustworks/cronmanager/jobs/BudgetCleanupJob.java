@@ -22,7 +22,7 @@ public class BudgetCleanupJob implements Job {
             restClient.updateBudgetByMonthAndYear(i, 2014);
         }
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             System.out.println("i = " + i);
             restClient.updateBudgetByMonthAndYear(i, 2015);
         }
